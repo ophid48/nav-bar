@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navigation ul li.active a .icon {
+  transform: translateY(-32px) !important ;
+  color: #2196f3 !important ;
+}
+.navigation ul li.active a .text {
+  transform: translateY(-4px) !important ;
+  opacity: 1 !important;
+}
+
+
+
+@for $i from 1 through 5 {
+  .navigation ul li:nth-child(#{$i}).active ~ .indicator {
+    transform: translateX(70px * ($i - 1));
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: -35px;
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 15px 18px #fff;
+}
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: -28px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -15px 18px #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background: #222327;
+
+  .navigation {
+    position: relative;
+    width: 400px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    ul {
+      display: flex;
+      width: 350px;
+
+
+      li {
+        list-style: none;
+        position: relative;
+        width: 70px;
+        height: 60px;
+        z-index: 2;
+
+        a {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+
+
+          .icon {
+            position: relative;
+            display: block;
+            line-height: 65px;
+            font-size: 1.5em;
+            transition: 0.5s;
+            color: #222327;
+          }
+
+          .text {
+            position: absolute;
+            background: #2196f3;
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 12px;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(15px);
+          }
+        }
+      }
+    }
+  }
+}
+
